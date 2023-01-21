@@ -47,7 +47,7 @@ export function writeFilesToDisk(context: BuildContext) {
     const fileName = basename(file.path);
     const fileToWrite = join(tmpPath, fileName);
     mkdirpSync(tmpPath);
-    writeFileSync(fileToWrite, file.content);
+    writeFileSync(fileToWrite, file.content | "");
   });
   return Promise.resolve();
 }
